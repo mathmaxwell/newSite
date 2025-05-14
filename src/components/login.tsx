@@ -1,4 +1,3 @@
-//adaptivka +
 import loginImg from '../images/login.png'
 import { useForm } from 'react-hook-form'
 import pb from '../lib/pocketbase'
