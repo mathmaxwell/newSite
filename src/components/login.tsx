@@ -5,7 +5,6 @@ import pb from '../lib/pocketbase'
 import useLoginStore from '../elements/useLoginStore'
 import { Navigate, useNavigate } from 'react-router'
 import IDate from '../elements/interface'
-import { useEffect } from 'react'
 Navigate
 const Login = () => {
 	const navigate = useNavigate()
