@@ -17,7 +17,7 @@ const Header = () => {
 	const { login, setLogin } = useLoginStore()
 	const MotionNavLink = motion.create(NavLink)
 	const navigate = useNavigate()
-	const navListSec = navList.slice(0, 3)
+	const navListSec = navList.slice(0, 2)
 	const { search, setSearch } = searchStory()
 	const searchRef = useRef<HTMLInputElement | null>(null)
 	const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
@@ -52,7 +52,7 @@ const Header = () => {
 			<div className='flex w-full items-center justify-between gap-2'>
 				<Link
 					to='/'
-					className='text-lg font-medium sm:text-xl sm:font-semibold md:text-2xl md:font-bold lg:text-3xl xl:text-4xl '
+					className='hidden sm:block text-lg font-medium sm:text-xl sm:font-semibold md:text-2xl md:font-bold lg:text-3xl xl:text-4xl '
 				>
 					Exclusive
 				</Link>
@@ -79,13 +79,22 @@ const Header = () => {
 							variants={listVariants}
 							initial='hidden'
 							animate='visible'
-							className='order-1 flex sm:hidden gap-1 min-w-20 max-w-72 w-full justify-between '
+							className='order-1  flex sm:hidden gap-1  max-w-72 w-full justify-between '
 						>
-							{(login ? navListSec : navList).map((item, idx) => (
-								<MotionNavLink key={idx} variants={itemVariants} to={item.url}>
-									{item.name}
-								</MotionNavLink>
-							))}
+							{(login ? navListSec : navList).map(
+								(
+									item,
+									idx //ikki
+								) => (
+									<MotionNavLink
+										key={idx}
+										variants={itemVariants}
+										to={item.url}
+									>
+										{item.name}
+									</MotionNavLink>
+								)
+							)}
 						</motion.ul>
 						<button
 							className='order-2 w-14 rounded-lg p-1 bg-red-500 text-white sm:hidden'
@@ -114,10 +123,10 @@ const Header = () => {
 									type='text'
 									ref={searchRef}
 									defaultValue={search}
-									placeholder='What are you looking for?'
-									className='text-sm p-1 w-48  '
+									placeholder='What are you looking for?' ////////
+									className='text-sm p-1 min-w-52 '
 								/>
-								<button type='submit' className='p-1 block '>
+								<button type='submit' className='p-1 block w-5 h-5 '>
 									<img src={lupe} alt='search' />
 								</button>
 							</form>
@@ -155,10 +164,10 @@ const Header = () => {
 								type='text'
 								ref={searchRef}
 								defaultValue={search}
-								placeholder='What are you looking for?'
-								className='text-sm p-1 w-48 sm:text-base sm:w-52 md:p-1.5 md:text-lg md:w-56 lg:p-2    '
+								placeholder='What are you looking for?' ///////////
+								className='text-sm p-1 w-48 sm:text-base sm:w-48 md:p-1.5 md:text-lg md:w-56 lg:p-2    '
 							/>
-							<button type='submit' className='p-1 hidden md:block'>
+							<button type='submit' className='p-1 md:block w-7 h-7'>
 								<img src={lupe} alt='search' />
 							</button>
 						</form>

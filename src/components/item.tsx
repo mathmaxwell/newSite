@@ -15,7 +15,7 @@ const Item = () => {
 	const { setCategories } = categoriesStory()
 	const navigate = useNavigate()
 	const { id } = itemStory()
-	const { addLikedProduct } = LikedProducts()
+	const { addOrDel } = LikedProducts()
 	const [obj, setObj] = useState<IProductFull | null>(null)
 	const [index, setIndex] = useState(0)
 	const [isItemInfo, setIsItemInfo] = useState(false)
@@ -35,7 +35,7 @@ const Item = () => {
 		alert(`${title} sotib oldim db faraz qiling`)
 	}
 	function handleLike(id: number) {
-		addLikedProduct(id)
+		addOrDel(id)
 	}
 	return (
 		<div className='container px-2 sm:px-3 md:px-4 mx-auto mb-5 sm:mb-10 md:mb-14 lg:mb-20'>
