@@ -11,13 +11,13 @@ import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import useLoginStore from '../elements/useLoginStore'
 import pb from '../lib/pocketbase'
-import { navList } from '../elements/list'
+import { navList, navList2 } from '../elements/list'
 import IsavedDate from '../elements/interface'
 const Header = () => {
 	const { login, setLogin } = useLoginStore()
 	const MotionNavLink = motion.create(NavLink)
 	const navigate = useNavigate()
-	const navListSec = navList.slice(0, 2)
+	const navListSec = navList2
 	const { search, setSearch } = searchStory()
 	const searchRef = useRef<HTMLInputElement | null>(null)
 	const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
