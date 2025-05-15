@@ -5,12 +5,10 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import pb from '../lib/pocketbase'
 import useLoginStore from '../elements/useLoginStore'
 import IDate from '../elements/interface'
-import useVerified from '../hooks/useVerified'
 const SignUp = () => {
 	const navigate = useNavigate()
 	const { setLogin } = useLoginStore()
 	const { register, handleSubmit, reset } = useForm<IDate>()
-	const { isVerified, requestVerification } = useVerified()
 	async function onSubmit(data: IDate) {
 		localStorage.setItem('pocketbase', JSON.stringify(data))
 		try {
