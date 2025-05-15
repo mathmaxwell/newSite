@@ -1,0 +1,26 @@
+# fly.toml app configuration file generated for pocketbase-docker-dry-darkness-302 on 2025-05-15T16:18:15+05:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'pocketbase-docker-dry-darkness-302'
+primary_region = 'hkg'
+
+[build]
+
+[[mounts]]
+  source = 'pb_data'
+  destination = '/pb/pb/data'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
